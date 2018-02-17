@@ -1,0 +1,1 @@
+main(n,m,k){int c[2][2]={0,0,0,0};scanf("%d%d%d",&n,&m,&k);while(k--){scanf("%d%d",&n,&m);c[n%2][m%2]=1;}printf("%s",c[0][0]&&c[0][1]&&c[1][0]&&c[1][1]?"YES":"NO");}
