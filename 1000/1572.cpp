@@ -1,0 +1,2 @@
+#include <bits/stdc++.h>
+using namespace std;int n,k;int arr[250001];deque<int>a;int main(){cin>>n>> k;for(int i=0;i<n;i++)cin>>arr[i];for(int i=0;i<k;i++)a.push_back(arr[i]);sort(a.begin(),a.end());long long ans=a[(k - 1) / 2];for (int i = 1; i < n - k + 1; i++) {a.erase(lower_bound(a.begin(), a.end(), arr[i - 1]));a.insert(lower_bound(a.begin(), a.end(), arr[i + k - 1]), arr[i + k - 1]);ans += a[(k - 1) / 2];}cout << ans << endl;return 0;}
