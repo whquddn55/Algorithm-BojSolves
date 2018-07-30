@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int, int> pii;
+
+ostream& operator<<(ostream& os, const pii& pai) {
+	os << pai.first << ' ' << pai.second;
+	return os;
+}
+
+istream& operator>>(istream& is, pii& pai) {
+	is >> pai.first >> pai.second;
+	return is;
+}
+
+#ifdef ONLINE_JUDGE
+#define endl '\n'
+#endif
+
+#define INF (INT_MAX / 2)
+
+#define MAX_N 200005
+
+int n, m;
+bool printed[9];
+
+void get(vector<int>& picked, int remain) {
+	if (remain == 0) {
+		for (auto e : picked)
+			cout << e << ' ';
+		cout << endl;
+		return;
+	}
+
+	for (int i = 1; i <= n; i++) {
+		if (printed[i])
+			continue;
+
+		printed[i] = true;
+		picked.push_back(i);
+		get(picked, remain - 1);
+		picked.pop_back();
+		printed[i] = false;
+	}
+}
+
+int main() {
+	ios_base::sync_with_stdio(false); std::cin.tie(NULL);
+
+	cin >> n >> m;
+
+	vector<int> picked;
+	get(picked, m);
+
+	return 0;
+}
