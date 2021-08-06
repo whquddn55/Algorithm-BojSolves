@@ -1,0 +1,2 @@
+#include <bits/stdc++.h>
+using namespace std;int n,k,i,a[250001];deque<int>b;int main(){cin>>n>>k;for(i=0;i<n;i++)cin>>a[i];for(i=0;i<k;i++)b.push_back(a[i]);sort(b.begin(),b.end());long long t=b[(k-1)/2];for(i=1;i<=n-k;i++){b.erase(lower_bound(b.begin(),b.end(),a[i-1]));b.insert(lower_bound(b.begin(),b.end(),a[i+k-1]),a[i+k-1]);t+=b[(k-1)/2];}cout<<t<<endl;return 0;}
